@@ -1,26 +1,23 @@
 import random
 
+
 class Goblin:
-    """
-    This is our goblin blueprint 
-    
-    Attributes:
-        name: Awe, it has a name? How cute!
-        health: The current health value 
-        attack_power: How much health will be drained from opponent if hit
-    """
+    """A completed character class students can examine as an OOP example."""
+
     def __init__(self, name):
         self.name = name
         self.health = 100
-        self.attack_power = random.randint(5, 15)
+        self.attack_power = 15
 
     def attack(self):
+        """Return a random amount of damage."""
         return random.randint(1, self.attack_power)
 
     def take_damage(self, damage):
-        self.health -= damage
-        # TODO We should prevent the goblins health from going into the NEGATIVE
-        print(f"{self.name} takes {damage} damage. Health is now {self.health}.")
+        """Reduce health without allowing it to fall below zero."""
+        self.health = max(0, self.health - damage)
+        print(f"{self.name} takes {damage} damage. Health: {self.health}")
 
     def is_alive(self):
+        """Return True while the goblin has health remaining."""
         return self.health > 0
