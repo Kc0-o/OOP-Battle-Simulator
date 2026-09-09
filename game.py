@@ -1,7 +1,7 @@
 from goblin import Goblin
 
 
-ARENA_NAME = "ASCTE"
+ARENA_NAME = "THE BASEMENT"
 
 
 def main():
